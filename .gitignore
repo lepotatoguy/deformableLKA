@@ -20,3 +20,6 @@ DATASET_Acdc.zip
 #general
 model_zoo/
 __pycache__/
+
+Experiments/
+cuda_11.3.1_465.19.01_linux.run

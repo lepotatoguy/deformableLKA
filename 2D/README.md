@@ -16,6 +16,7 @@ Skin 2018 | Skin Dataset | D-LKA Net TODO
 PH2       | Skin Dataset | D-LKA Net TODO
 
 ## Environment Setup
+0. Please ensure to install CUDA = 11.3 and GCC = 10 before getting started.
 1. Create a new conda environment with python version 3.8.16:
     ```bash
     conda create -n "d_lka_net_2d" python=3.8.16
