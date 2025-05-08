@@ -45,6 +45,8 @@ PH2       | Skin Dataset | D-LKA Net TODO
 
     **--eval_interval** [Evaluation epoch]
 
+    Reduce the batch size if you face OOM error (such as in personal devices where you may have less ram).
+
 3. Run the below code to test the D-LKA Net on the Synapse dataset.
     ```bash
     python test.py --volume_path ./data/Synapse/ --output_dir './model_out'

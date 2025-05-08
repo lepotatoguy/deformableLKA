@@ -16,6 +16,7 @@ DATASET_Acdc.zip
 2D/skin_code/ISIC2018
 2D/skin_code/PH2
 2D/model_out
+2D/data
 
 #general
 model_zoo/
@@ -23,3 +24,4 @@ __pycache__/
 
 Experiments/
 cuda_11.3.1_465.19.01_linux.run
+/Dataset
