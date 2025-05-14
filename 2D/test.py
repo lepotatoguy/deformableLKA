@@ -3,6 +3,7 @@ import logging
 import os
 import random
 import sys
+import glob
 
 import numpy as np
 import torch
@@ -20,7 +21,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument(
     "--volume_path",
     type=str,
-    default="/home/leon/repos/LeonsStuff/data/Synapse/",
+    default="./data/Synapse/",
     help="root dir for validation volume data",
 )  # for acdc volume_path=root_dir
 parser.add_argument("--dataset", type=str, default="Synapse", help="experiment_name")
@@ -134,9 +135,17 @@ if __name__ == "__main__":
 
     net = MaxViT_deformableLKAFormer(num_classes=args.num_classes).cuda(0)
 
-    snapshot = os.path.join(args.output_dir, "best_model.pth")
-    if not os.path.exists(snapshot):
-        snapshot = snapshot.replace("best_model", "transfilm_epoch_" + str(args.max_epochs - 1))
+    # Search for checkpoint matching the target epoch
+    epoch_target = args.max_epochs - 1
+    search_pattern = os.path.join(args.output_dir, "MaxViT_deform_LKA_two_layer", f"*epoch_{epoch_target}.pth")
+    matching_snapshots = glob.glob(search_pattern)
+
+    if not matching_snapshots:
+        raise FileNotFoundError(f"No model checkpoint found matching pattern: {search_pattern}")
+    snapshot = matching_snapshots[0]
+    # snapshot = os.path.join(args.output_dir, "best_model.pth")
+    # if not os.path.exists(snapshot):
+    #     snapshot = snapshot.replace("best_model", "transfilm_epoch_" + str(args.max_epochs - 1))
     msg = net.load_state_dict(torch.load(snapshot))
     print("self trained swin unet", msg)
     snapshot_name = snapshot.split("/")[-1]
