@@ -11,12 +11,19 @@ You can download the learned weights of the D-LKA Net in the following table.
 Task | Dataset |Learned weights
 ------------ | -------------|----
 Multi organ segmentation | [Synapse](https://drive.google.com/uc?export=download&id=18I9JHH_i0uuEDg-N6d7bfMdf7Ut6bhBi) | [D-LKA Net 2D](https://drive.google.com/drive/folders/1TY7G0X32kGbgnzx_Zn5px0gW8fVF4ptI?usp=sharing)
-Skin 2017 | Skin Dataset | D-LKA Net TODO
-Skin 2018 | Skin Dataset | D-LKA Net TODO
+Skin 2017 | [Skin Dataset](https://challenge.isic-archive.com/data/#2017) | D-LKA Net TODO
+Skin 2018 | [Skin Dataset](https://challenge.isic-archive.com/data/#2018) | D-LKA Net TODO
 PH2       | Skin Dataset | D-LKA Net TODO
 
 ## Environment Setup
 0. Please ensure to install CUDA = 11.3 and GCC = 10 before getting started.
+   If you want to keep in conda, 
+   install 
+   ```bash
+    conda install cudatoolkit=11.3 -c conda-forge
+    ```
+    after step 1.
+
 1. Create a new conda environment with python version 3.8.16:
     ```bash
     conda create -n "d_lka_net_2d" python=3.8.16
@@ -30,6 +37,10 @@ PH2       | Skin Dataset | D-LKA Net TODO
     ```bash
     pip install -r requirements.txt
     ```
+    While installing, mmcv-full can take time. To avoid this, you can, 
+    ```bash
+    pip install mmcv-full==1.7.1 -f https://download.openmmlab.com/mmcv/dist/cu113/torch1.11.0/index.html
+    ```
 
 ## Synapse Dataset
 ### Training and Testing
@@ -37,7 +48,7 @@ PH2       | Skin Dataset | D-LKA Net TODO
 
 2. Run the code below to train D-LKA Net on the Synapse dataset.
     ```bash
-    python train_MaxViT_deform_LKA.py --root_path ./data/Synapse/train_npz --test_path ./data/Synapse/test_vol_h5 --batch_size 20 --eval_interval 20
+    python train_MaxViT_deform_LKA.py --root_path ./data/Synapse/train_npz --test_path ./data/Synapse/test_vol_h5 --batch_size 20 --eval_interval 20 (I changed batch size to 6)
     ```
     **--root_path**     [Train data path]
 
