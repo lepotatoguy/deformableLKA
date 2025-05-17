@@ -6,13 +6,15 @@ from networks.ResNet34 import Resnet34
 from networks.unetr import UNETR
 from networks.d_lka_former.d_lka_net_synapse import D_LKA_Net
 from networks.d_lka_former.transformerblock import TransformerBlock_3D_single_deform_LKA, TransformerBlock
+os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "max_split_size_mb:64"
+
 
 from test_util import test_all_case
 
 from fvcore.nn import FlopCountAnalysis
 import sys
 parser = argparse.ArgumentParser()
-parser.add_argument('--root_path', type=str, default='/work/scratch/niggemeier/projects/MCF/dataset_pancreas/', help='Name of Experiment')  # todo change dataset path
+parser.add_argument('--root_path', type=str, default='./dataset_pancreas/', help='Name of Experiment')  # todo change dataset path
 parser.add_argument('--model', type=str,  default="pancreas1", help='model_name')                # todo change test model name
 parser.add_argument('--gpu', type=str,  default='0', help='GPU to use')
 args = parser.parse_args()
@@ -38,7 +40,8 @@ def create_model(name='dlka_former'):
                            img_size=[96, 96, 96],
                            patch_size=(2,2,2),
                            input_size=[48*48*48, 24*24*24,12*12*12,6*6*6],
-                           trans_block=TransformerBlock,
+                        #    trans_block=TransformerBlock,
+                        trans_block=TransformerBlock_3D_single_deform_LKA,
                            do_ds=False)
             model = net.cuda()
 
@@ -64,7 +67,9 @@ def test_calculate_metric(epoch_num):
 
 
     avg_metric = test_all_case(dlka_former, dlka_former, image_list, num_classes=num_classes,
-                               patch_size=(96, 96, 96), stride_xy=16, stride_z=16,
+                               patch_size=(96, 96, 96), 
+                               stride_xy=16, 
+                               stride_z=16,
                                save_result=True, test_save_path=test_save_path)
 
     return avg_metric
