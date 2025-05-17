@@ -2,6 +2,12 @@
 Instructions for the 3D D-LKA Net.
 
 ## Environment Setup
+0. Please ensure to install CUDA = 11.3 and GCC = 10 before getting started.
+   If you want to keep in conda, 
+   install 
+   ```bash
+    conda install cudatoolkit=11.3 -c conda-forge
+    ```
 1. Create a new conda environment with python version 3.8.16:
     ```bash
     conda create -n "d_lka_net_3d" python=3.8.16
@@ -19,6 +25,12 @@ Instructions for the 3D D-LKA Net.
     ```bash
     cd dcn/
     bash make.sh
+    ```
+
+    Sometimes, you may want to export these two lines below before doing it. 
+     ```bash
+    export CC=/usr/bin/gcc-10
+    export CXX=/usr/bin/g++-10
     ```
 
 ## Model weights

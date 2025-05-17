@@ -22,7 +22,6 @@ PH2       | Skin Dataset | D-LKA Net TODO
    ```bash
     conda install cudatoolkit=11.3 -c conda-forge
     ```
-    after step 1.
 
 1. Create a new conda environment with python version 3.8.16:
     ```bash
