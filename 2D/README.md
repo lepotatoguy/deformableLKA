@@ -45,9 +45,9 @@ PH2       | Skin Dataset | D-LKA Net TODO
 ### Training and Testing
 1. Download the Synapse dataset from the link above.
 
-1.1. Download the model weight provided. Then create a folder named pretrained_pth. And then move the weight there and rename it to "maxvit_rmlp_small_rw_224_sw-6ef0ae4f.pth". Otherwise, you may get into an error (i.e. [here](https://github.com/xmindflow/deformableLKA/issues/16)). 
+1.1. Download the pre-trained model weight (we use "maxvit_rmlp_small_rw_224_sw-6ef0ae4f.pth" here) provided from [here](https://drive.google.com/drive/folders/1k-s75ZosvpRGZEWl9UEpc_mniK3nL2xq). Then create a folder named pretrained_pth. And then move the weight there. Otherwise, you may get into an error (i.e. [here](https://github.com/xmindflow/deformableLKA/issues/16)). [More Info](https://github.com/xmindflow/deformableLKA/issues/10)
 
-2. Run the code below to train D-LKA Net on the Synapse dataset.
+1. Run the code below to train D-LKA Net on the Synapse dataset.
     ```bash
     python train_MaxViT_deform_LKA.py --root_path ./data/Synapse/train_npz --test_path ./data/Synapse/test_vol_h5 --batch_size 20 --eval_interval 20 # (I changed batch size to 6)
     ```
@@ -59,7 +59,7 @@ PH2       | Skin Dataset | D-LKA Net TODO
 
     Reduce the batch size if you face OOM error (such as in personal devices where you may have less ram).
 
-3. Run the below code to test the D-LKA Net on the Synapse dataset.
+2. Run the below code to test the D-LKA Net on the Synapse dataset.
     ```bash
     python test.py --volume_path ./data/Synapse/ --output_dir './model_out'
     ```
