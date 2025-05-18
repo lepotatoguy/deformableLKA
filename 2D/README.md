@@ -45,9 +45,11 @@ PH2       | Skin Dataset | D-LKA Net TODO
 ### Training and Testing
 1. Download the Synapse dataset from the link above.
 
+1.1. Download the model weight provided. Then create a folder named pretrained_pth. And then move the weight there and rename it to "maxvit_rmlp_small_rw_224_sw-6ef0ae4f.pth". Otherwise, you may get into an error (i.e. [here](https://github.com/xmindflow/deformableLKA/issues/16)). 
+
 2. Run the code below to train D-LKA Net on the Synapse dataset.
     ```bash
-    python train_MaxViT_deform_LKA.py --root_path ./data/Synapse/train_npz --test_path ./data/Synapse/test_vol_h5 --batch_size 20 --eval_interval 20 (I changed batch size to 6)
+    python train_MaxViT_deform_LKA.py --root_path ./data/Synapse/train_npz --test_path ./data/Synapse/test_vol_h5 --batch_size 20 --eval_interval 20 # (I changed batch size to 6)
     ```
     **--root_path**     [Train data path]
 
