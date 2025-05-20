@@ -43,7 +43,7 @@ Pancreas | [D-LKA Net](https://drive.google.com/drive/folders/1mSbs-p5gwA2dUbNKJ
 
 ## Synapse Dataset
 
-1. Download the Synapse dataset from here: [Synapse](https://mbzuaiac-my.sharepoint.com/personal/abdelrahman_youssief_mbzuai_ac_ae/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fabdelrahman%5Fyoussief%5Fmbzuai%5Fac%5Fae%2FDocuments%2FUNETR%2B%2B%2FDATASET%5FSynapse%2Ezip&parent=%2Fpersonal%2Fabdelrahman%5Fyoussief%5Fmbzuai%5Fac%5Fae%2FDocuments%2FUNETR%2B%2B&ga=1)
+1. Download the Synapse dataset from here: [Synapse](https://mbzuaiac-my.sharepoint.com/personal/abdelrahman_youssief_mbzuai_ac_ae/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fabdelrahman%5Fyoussief%5Fmbzuai%5Fac%5Fae%2FDocuments%2FUNETR%2B%2B%2FDATASET%5FSynapse%2Ezip&parent=%2Fpersonal%2Fabdelrahman%5Fyoussief%5Fmbzuai%5Fac%5Fae%2FDocuments%2FUNETR%2B%2B&ga=1) [Note: You may need to ask for access from the official source. Please refer to this [link](https://github.com/xmindflow/deformableLKA/issues/22) for more.]
 2. Rename each folder containing 'unetr_pp' to 'd_lka_former'. THIS IS IMPORTANT.
 3. Adjust the paths in the **run_training_synappse.sh**
 4. Run the following lines: 
