@@ -141,7 +141,7 @@ if __name__ == "__main__":
     matching_snapshots = glob.glob(search_pattern)
 
     if not matching_snapshots:
-        raise FileNotFoundError(f"No model checkpoint found matching pattern: {search_pattern}")
+        raise FileNotFoundError(f"No model checkpoint found matching pattern: {search_pattern}") # If you need a model checkpoint, please refer to the link: https://github.com/xmindflow/deformableLKA/issues/17
     snapshot = matching_snapshots[0]
     # snapshot = os.path.join(args.output_dir, "best_model.pth")
     # if not os.path.exists(snapshot):
