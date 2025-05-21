@@ -11,7 +11,7 @@ def save_my_plans(file, plans):
 
 
 if __name__ == '__main__':
-    plans_file = '/home/leon/repos/deformableLKA/3D/DATASET/d_lka_former_raw/d_lka_former_raw_data/Task02_Synapse/Task002_Synapse/d_lka_former_Plansv2.1_plans_3D.pkl'
+    plans_file = './DATASET/d_lka_former_raw/d_lka_former_raw_data/Task02_Synapse/Task002_Synapse/d_lka_former_Plansv2.1_plans_3D.pkl'
 
     plans = load_pickle(plans_file)
 
@@ -19,5 +19,5 @@ if __name__ == '__main__':
 
     plans['data_identifier'] = 'd_lka_former_Data_plans_v2.1'
 
-    save_my_plans('/home/leon/repos/deformableLKA/3D/DATASET/d_lka_former_raw/d_lka_former_raw_data/Task02_Synapse/Task002_Synapse/d_lka_former_Plansv2.1_plans_3D.pkl', plans=plans)
+    save_my_plans('./DATASET/d_lka_former_raw/d_lka_former_raw_data/Task02_Synapse/Task002_Synapse/d_lka_former_Plansv2.1_plans_3D.pkl', plans=plans)
 

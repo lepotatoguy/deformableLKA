@@ -104,7 +104,7 @@ def test_single_case(vnet,resnet=None, image=None, stride_xy=None, stride_z=None
                 cnt[xs:xs+patch_size[0], ys:ys+patch_size[1], zs:zs+patch_size[2]] \
                   = cnt[xs:xs+patch_size[0], ys:ys+patch_size[1], zs:zs+patch_size[2]] + 1
                 
-                torch.cuda.empty_cache() #If not use this, you may meet out of memory error
+                torch.cuda.empty_cache() #If not use this, you may face out of memory error
 
     score_map = score_map/np.expand_dims(cnt,axis=0)
     label_map = np.argmax(score_map, axis = 0)
